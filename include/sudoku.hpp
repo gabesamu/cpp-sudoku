@@ -20,10 +20,12 @@ public:
 
     // Eliminates a value from a square, and propagating the constraints to the other squares
     bool eliminate(int square, int value);
+
     // Displays board as a 2d grid
     void display();
 
     // attempts to solve the board that is currently loaded into the values array
+    // returns true if the board was solved, false if the board is unsolvable
     bool solve();
 
     void display_init();
