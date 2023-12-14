@@ -13,11 +13,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Setup CMake
-      uses: lukka/get-cmake@v3.19.2
-
-    - name: Setup Ninja
-      uses: lukka/get-ninja@v1.0
+    - name: Setup CMake and Ninja
+      uses: lukka/get-cmake@latest
 
     - name: Configure CMake
       run: cmake -S . -B build -G "Ninja"
