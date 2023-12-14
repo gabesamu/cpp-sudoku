@@ -1,0 +1,29 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup CMake
+      uses: lukka/get-cmake@v3.19.2
+
+    - name: Setup Ninja
+      uses: lukka/get-ninja@v1.0
+
+    - name: Configure CMake
+      run: cmake -S . -B build -G "Ninja"
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Run tests
+      run: ./build/sudoku_tests ../tests/top95.txt

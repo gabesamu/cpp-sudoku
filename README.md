@@ -19,6 +19,8 @@ Before building `cpp-sudoku`, ensure you have the following installed:
 
 The default build is a static library. To build as dynamic set the `BUILD_SHARED_LIBS` flag to `ON` when running `cmake`.
 
+Example builds unix default as make, other generators can be specified with the `-G` flag.
+
 ```bash
 git clone https://github.com/gabmsamu/cpp-sudoku.git
 cd cpp-sudoku
@@ -34,6 +36,8 @@ cmake -BUILD_SHARED_LIBS=ON ..
 
 # Tests are built by default but can be turned off
 cmake -BUILD_TESTS=OFF ..
+
+make
 
 ```
 
